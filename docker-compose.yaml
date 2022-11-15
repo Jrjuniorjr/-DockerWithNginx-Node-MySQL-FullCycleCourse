@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app-db:
+    build: 
+      context: ./app-db/
+    image: momedesjunior/fullcycle-course-docker-app-db
+    container_name: app-db
+    restart: always
+    tty: true
+    volumes:
+      - ./app-db/app-db-data:/var/lib/mysql
+    networks:
+      - app-network
+
+
+
+networks:
+  app-network:
+    driver: bridge
