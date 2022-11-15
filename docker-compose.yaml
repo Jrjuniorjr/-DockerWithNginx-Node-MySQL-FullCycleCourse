@@ -13,6 +13,18 @@ services:
     networks:
       - app-network
 
+  app:
+    build:
+      context: ./app/
+    image: momedesjunior/fullcycle-course-docker-app
+    container_name: app
+    entrypoint: dockerize -wait tcp://app-db:3306 -timeout 20s docker-entrypoint.sh
+    command: node index.js
+    networks:
+      - app-network
+    tty: true
+    depends_on:
+      - app-db
 
 
 networks:
