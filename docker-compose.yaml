@@ -25,6 +25,21 @@ services:
     tty: true
     depends_on:
       - app-db
+  
+  nginx:
+    build:
+      context: ./nginx
+    image: momedesjunior/fullcycle-course-docker-nginx
+    container_name: nginx
+    entrypoint: dockerize -wait tcp://app-db:3306 -timeout 20s /docker-entrypoint.sh
+    command: "nginx -g 'daemon off;'"
+    networks:
+      - app-network
+    tty: true
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
 
 
 networks:
