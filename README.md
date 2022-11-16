@@ -1,4 +1,4 @@
-# -DockerWithNginx-Node-MySQL-FullCycleCourse
+# DockerWithNginx-Node-MySQL-FullCycleCourse
 
 <a href="https://hub.docker.com/r/momedesjunior/fullcycle-course-docker-app-db">Look at this docker image of app-db on DockerHub by clicking here</a>
 
